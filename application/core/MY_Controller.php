@@ -4,9 +4,9 @@ class MY_Controller extends CI_Controller {
 
     protected $DATA = [];
     
-    protected $title = '';
+    protected $TITLE = '';
     
-    protected $layout = 'application';
+    protected $LAYOUT = 'application';
     
     public function __construct()
     {
@@ -17,7 +17,7 @@ class MY_Controller extends CI_Controller {
     
     public function render($view = null)
     {
-        $layout = 'layouts/'.$this->layout;
+        $layout = 'layouts/'.$this->LAYOUT;
         //guess view file by convention
         if ($view == null) {
             $class = $this->router->class;
@@ -35,14 +35,14 @@ class MY_Controller extends CI_Controller {
     
     private function _set_title()
     {
-        if ($this->title == null) {
+        if ($this->TITLE == null) {
             $class = $this->router->class;
             $method = $this->router->method;
             
-            $this->title = ucfirst($class).' | '.$method;
+            $this->TITLE = ucfirst($class).' | '.$method;
         }
         
-        $this->DATA['title'] = $this->title;
+        $this->DATA['title'] = $this->TITLE;
     }
     
     protected function add_js($js = '')
