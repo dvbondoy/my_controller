@@ -2,7 +2,7 @@
 
 class MY_Controller extends CI_Controller {
 
-    protected $DATA = [];
+    protected $DATA = array();
     
     protected $TITLE = '';
     
@@ -17,7 +17,7 @@ class MY_Controller extends CI_Controller {
     
     public function render($view = null)
     {
-        $layout = 'layouts/'.$this->LAYOUT;
+        $layout = "layouts/.$this->LAYOUT";
         //guess view file by convention
         if ($view == null) {
             $class = $this->router->class;
@@ -54,7 +54,7 @@ class MY_Controller extends CI_Controller {
             }
         } else {
             $resource = base_url('assets/js/'.$js);
-            $this->DATA['js'][] = '<script src="'.$resource.'"></script>';
+            $this->DATA['js'][] = '<script src="'.$resource.'"></script><br>';
         }
     }
     
